@@ -1,3 +1,4 @@
+# {{ ansible_managed }}
 server {
     listen {{ server_port }};
 	server_name {{ server_name }};
@@ -13,5 +14,5 @@ server {
         proxy_pass          {{ location.proxy_pass }};
         {{ location.additional_settings }}
     }
-    {% endfor %}    
+    {% endfor %}
 }
