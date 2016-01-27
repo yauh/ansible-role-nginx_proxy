@@ -1,10 +1,10 @@
 # {{ ansible_managed }}
 server {
-    listen {{ server_port }};
-	server_name {{ server_name }};
-	root {{ site_root }};
+    listen {{ nginx_server_port }};
+	server_name {{ nginx_server_name }};
+	root {{ nginx_site_root }};
 
-    {% for location in locations %}
+    {% for location in nginx_locations %}
     location ^~ /{{ location.path }} {
         proxy_set_header    Host                $host;
         proxy_set_header    X-Forwarded-Host    $host;

@@ -3,10 +3,6 @@
 - name: Configuration file for our proxy site
   template: src=proxysite.j2 dest=/etc/nginx/sites-available/99-proxysites
   with_items: locations
- 
+
 - file: src=/etc/nginx/sites-available/99-proxysites dest=/etc/nginx/sites-enabled/99-proxysites state=link
   notify: restart nginx
-
-#- name: Configuration file for our proxy site
-#  template: src=index_html.j2 dest=/var/www/index.html
-#  notify: restart nginx
